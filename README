@@ -13,10 +13,7 @@
 ========================================================================
 
 test：测试项目
-openssl: openssl 静态包，和dll
-common:公共实现的c++类md5,加密，socket 传输
 FileAcitvex: Acitvex组件项目
-FileServer:文件服务器项目
 mkcab.bat，fileactivex.inf:打包脚本
 fileactivexf.htm和jquery.progressbar.js :网页测试页面
 
