@@ -1,0 +1,9 @@
+[Add.Code]
+FileActiveX.ocx=FileActiveX.ocx
+
+
+[FileActiveX.ocx]
+file=thiscab
+RegisterServer=yes
+FileVersion=1,0,0,1
+
