@@ -1,0 +1,70 @@
+// FileActiveX.idl : type library source for ActiveX Control project.
+
+// This file will be processed by the MIDL compiler tool to
+// produce the type library (FileActiveX.tlb) that will become a resource in
+// FileActiveX.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(CBE9E0B0-95DB-4495-8BE8-E4CB416EF07D), version(1.0),
+  helpfile("FileActiveX.hlp"),
+  helpstring("FileActiveX ActiveX Control module"),
+  control ]
+library FileActiveXLib
+{
+	importlib(STDOLE_TLB);
+
+	//  Primary dispatch interface for CFileActiveXCtrl
+
+	//[ uuid(98AF8A06-7DFE-472D-A713-A0C6F22FDC3D),
+	[ uuid(ACCA2641-9C12-409A-8DD8-986E5A12C5D4),
+	  helpstring("Dispatch interface for FileActiveX Control")]
+	dispinterface _DFileActiveX
+	{
+		properties:
+			[id(1) , helpstring("property InputFilePath")] BSTR InputFilePath;
+			[id(2) , helpstring("property OutputParameter")] BSTR OutputParameter; 
+			[id(5) , helpstring("property InputConnIP")] BSTR InputConnIP;
+			[id(6) , helpstring("property InputConnPort")] LONG InputConnPort;
+			[id(7) , helpstring("property ErrMSG")] BSTR OutputErrMSG;
+			[id(8) , helpstring("property OutputProgress")] LONG OutputProgress;
+			[id(9) , helpstring("property InputToken")] BSTR InputToken;
+			[id(11),helpstring("property OutPutFileLocation")] BSTR OutPutFileLocation;
+			[id(12), helpstring("property OutPutFileName")] BSTR OutPutFileName;
+			[id(13),helpstring("property OutPutUpLdLog")] BSTR OutPutUpLdLog;
+			[id(14), helpstring("property OutPutFileSize")] ULONG OutPutFileSize;
+			[id(15), helpstring("property OutPutShowFileName") ] BSTR OutPutShowFileName;
+			[id(16), helpstring("property OutPutErrorCode")  ] LONG OutPutErrorCode;
+
+	methods:
+		[id(3), helpstring("method InitUpload")] void InitUpload(void);
+		[id(10), helpstring("method OnOutputOpenDialog")] BSTR OnOutputOpenDialog(BSTR nFileName, BSTR nFileStream);
+		[id(17), helpstring("method OnCanelupLoad")] LONG OnCanelupLoad(void);
+	};
+
+	//  Event dispatch interface for CFileActiveXCtrl
+
+	[ uuid(78099343-A8FF-4867-A537-06F31034F22B),
+	  helpstring("Event interface for FileActiveX Control") ]
+	dispinterface _DFileActiveXEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			[id(1)] void ParameterLoaded(void);
+	};
+
+	//  Class information for CFileActiveXCtrl
+
+	//[ uuid(36299202-09EF-4ABF-ADB9-47C599DBE778),
+	  [ uuid(36299202-09EF-4ABF-ADB9-47C599DBE778),
+		  helpstring("FileActiveX Control"), control ]
+	coclass FileActiveX
+	{
+		[default] dispinterface _DFileActiveX;
+		[default, source] dispinterface _DFileActiveXEvents;
+	};
+
+};
